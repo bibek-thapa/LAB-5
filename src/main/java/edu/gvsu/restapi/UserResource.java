@@ -85,12 +85,7 @@ public class UserResource  extends ServerResource {
 			if (entity.getMediaType().equals(MediaType.APPLICATION_WWW_FORM,
 					true)) {
 				Form form = new Form(entity);
-//				if (form.getFirstValue("userInput").toString().equals("busy")) {
-//					this.client.setStatus(false);
-//				}
-//				if (form.getFirstValue("userInput").toString().equals("available")) {
-//					this.client.setStatus(true);
-//				}
+
 				if(this.client.getStatus()) {
 				this.client.setStatus(false);}
 				else 

@@ -27,8 +27,8 @@ public class ChatClient {
 	static ServerSocket serverSocket =null;
 	ServerThread serverThread;
 	static RegistrationInfo info;
-	public static final String APPLICATION_URI = "http://localhost:8080";
-//	public static final String APPLICATION_URI = "http://lab5-224521.appspot.com/";
+//	public static final String APPLICATION_URI = "http://localhost:8080";
+	public static final String APPLICATION_URI = "http://lab5-224521.appspot.com/";
 	static RegistrationInfo info1;
 	public ChatClient() {
 				
@@ -333,7 +333,7 @@ public class ChatClient {
 				case "busy":
 					 Form form_a = new Form();
               	    	form_a.add("userInput","busy");
-              	    	System.out.println(form_a);
+              	    	
               	    	widgetsResourceURL = APPLICATION_URI + "/users/" +info.getUserName();
               	    	Request request_1 = new Request(Method.PUT,widgetsResourceURL);
          
@@ -350,7 +350,22 @@ public class ChatClient {
 					break;
 					
 				case "available":
-					
+					Form form_b = new Form();
+          	    	form_b.add("userInput","busy");
+          	    	
+          	    	widgetsResourceURL = APPLICATION_URI + "/users/" +info.getUserName();
+          	    	Request request_2 = new Request(Method.PUT,widgetsResourceURL);
+     
+          	    	request_2.setEntity(form.getWebRepresentation());
+          	    
+          	    	Response resp_2 = new Client(Protocol.HTTP).handle(request_2);
+          	    	Representation responseData_2 = resp_2.getEntity();
+          	    	 try {
+              			System.out.println(responseData_2.getText());
+              		} catch (IOException e) {
+              			// TODO Auto-generated catch block
+              			e.printStackTrace();
+              		}
 								
 					
 					break;
