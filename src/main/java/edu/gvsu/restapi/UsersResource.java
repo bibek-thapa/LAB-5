@@ -64,12 +64,7 @@ public class UsersResource  extends ServerResource {
 					RegistrationInfo rInf = (RegistrationInfo)o;
 					usersArray.put(rInf.toJSON());
 				}
-//				HashMap<String,RegistrationInfo> rInf = new HashMap<String,RegistrationInfo>();
-//				for(RegistrationInfo o : this.registeredUsers) {
-//					rInf.put(o.getUserName(), o);
-//					//usersArray.put(rInf.toJSON());
-//				}
-
+				
 				result = new JsonRepresentation(usersArray);
 
 			} else {
